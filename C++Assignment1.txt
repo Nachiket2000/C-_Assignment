@@ -1,0 +1,332 @@
+//1)  
+#include <bits/stdc++.h>
+using namespace std;
+
+class Sum{
+    public:
+    int c,d;
+    Sum(int c,int d){
+        this->c=c;
+        this->d=d;
+    }
+    int ans(){
+        return this->c+this->d;
+    }
+};
+
+int main() {
+    int a,b;
+    cin>>a>>b;
+    Sum s(a,b);
+    cout<<s.ans();
+    
+
+    return 0;
+}
+
+
+//2)
+#include <bits/stdc++.h>
+using namespace std;
+
+class Sum{
+    
+    public:
+    void Arithmetic(int a,int b);
+};
+void Sum::Arithmetic(int a,int b){
+    // e=a;
+    // f=b;
+    cout<<a+b<<endl;
+    cout<<a*b<<endl;
+    cout<<a-b<<endl;
+    cout<<a/b<<endl;
+}
+
+
+int main() {
+    int a,b;
+    cin>>a>>b;
+    Sum s;
+    s.Arithmetic(a,b);
+    
+
+    return 0;
+}
+
+//3)
+#include <bits/stdc++.h>
+using namespace std;
+
+class Shape{
+    public:
+    void Area(int a){
+        cout<<a*a<<endl;
+    }
+    void Area(int l,int b){
+        cout<<l*b<<endl;
+    }
+    void Area(int c,int d,int e){
+        cout<<((c+d)*e)/2;
+    }
+};
+
+
+
+
+
+
+
+int main() {
+    // Write C++ code here
+    // std::cout << "Hello world!";
+    int a,l,b,c,d,e;
+    cin>>a>>l>>b>>c>>d>>e;
+    Shape s;
+    s.Area(a);
+    s.Area(l,b);
+    s.Area(c,d,e);
+
+    return 0;
+}
+
+//4)
+#include <bits/stdc++.h>
+using namespace std;
+
+class Student{
+    private:
+    int admno;
+    string sname;
+    float eng,math,science,total;
+    float ctotal(){
+        float total1=eng+math+science;
+        return total1;
+    }
+    public:
+    void Takedata(int admno1,char* sname1,float eng1,float math1,float science1){
+        admno= admno1;
+        sname= sname1;
+        eng= eng1;
+        math= math1;
+        science= science1;
+        total=ctotal();
+        
+    }
+    
+    void Showdata(){
+        cout<<admno<<endl;
+        cout<<sname<<endl;
+        cout<<eng<<endl;
+        cout<<math<<endl;
+        cout<<science<<endl;
+        cout<<total;
+    }
+};
+
+
+
+
+
+
+
+int main() {
+    // Write C++ code here
+    // std::cout << "Hello world!";
+    int admno;
+    char sname[20];
+    float eng,math,science;
+    cin>>admno>>sname>>eng>>math>>science;
+    Student s;
+    s.Takedata(admno,sname,eng,math,science);
+    s.Showdata();
+    // s.Area(c,d,e);
+
+    return 0;
+}
+
+
+//6)
+#include <bits/stdc++.h>
+using namespace std;
+class Complex{
+    float real;
+    float imag;
+    public:
+    void set(float a,float b){
+        real=a;
+        imag=b;
+    }
+    void disp(){
+        cout<<real<<" +i"<<imag;
+    }
+    Complex sum(Complex c){
+        Complex n;
+        n.real=real+c.real;
+        n.imag=imag+c.imag;
+    }
+};
+
+int main() {
+    // Write C++ code here
+    // std::cout << "Hello world!";
+    Complex c1,c2,c3;
+    c1.set(2.5,3.5);
+    c2.set(4.5,6.5);
+    c3=c1.sum(c2);
+    c1.disp();
+    c2.disp();
+    c3.disp();
+
+    return 0;
+}
+
+//7)
+#include <bits/stdc++.h>
+using namespace std;
+class Distance{
+    int feet;
+    float inch;
+    public:
+    void set(int f,float i){
+        feet=f;
+        inch=i;
+    }
+    void disp(){
+        cout<<feet<<" feet "<<inch<<" inches"<<endl;
+    }
+    Distance operator +(Distance x){
+        Distance res;
+        res.feet=feet+x.feet;
+        res.inch=inch+x.inch;
+        return res;
+    }
+};
+
+int main() {
+    // Write C++ code here
+    // std::cout << "Hello world!";
+    Distance d1,d2,d3;
+    d1.set(2,4.2);
+    d2.set(3,2.2);
+    d3=d1+d2;
+    d1.disp();
+    d2.disp();
+    d3.disp();
+   
+
+
+    return 0;
+}
+
+
+
+
+
+//8)
+#include <bits/stdc++.h>
+using namespace std;
+class Time{
+    int hours;
+    int mins;
+    public:
+    void setTime(int h,int m){
+        hours=h;
+        mins=m;
+    }
+    void disp(){
+        if(mins>60){
+            hours=hours+1;
+            mins=mins-60;
+        }
+        cout<<hours<<" hours "<<mins<<" minutes "<<endl;
+    }
+    Time sum(Time x){
+        Time res;
+        res.hours=hours+x.hours;
+        res.mins=mins+x.mins;
+        if(res.mins>60){
+            res.hours=res.hours+1;
+            res.mins=res.mins-60;
+        }
+        
+        return res;
+    }
+};
+
+int main() {
+    // Write C++ code here
+    // std::cout << "Hello world!";
+    Time t1,t2,t3;
+    t1.setTime(2,35);
+    t2.setTime(3,45);
+    t3=t1.sum(t2);
+    t1.disp();
+    t2.disp();
+    t3.disp();
+   
+
+
+    return 0;
+}
+
+
+//5.
+#include <bits/stdc++.h>
+using namespace std;
+
+class Rectangle{
+    float length,width;
+    public:
+    void setLength(float l){
+        length=l;
+    }
+    void setWidth(float w){
+        width=w;
+    }
+    float perimeter(){
+        return (2*(length+width));
+    }
+    float area(){
+        return (length*width);
+    }
+    static int sameArea(Rectangle s1,Rectangle s2){
+        if(s1.area()==s2.area())
+            return 1;
+        return 0;
+    }
+    
+};
+
+int main() {
+    // Write C++ code here
+    Rectangle r1,r2;
+    r1.setLength(5);
+    r1.setWidth(2.5);
+    cout<<"Rectangle 1 Perimeter is "<<r1.perimeter()<<endl;
+    cout<<"Rectangle 1 Area is "<<r1.area()<<endl;
+    r2.setLength(5);
+    r2.setWidth(18.9);
+    cout<<"Rectangle 2 Perimeter is"<<r2.perimeter()<<endl;
+    cout<<"Rectangle 2 Area is"<<r2.area()<<endl;
+    int res=Rectangle::sameArea(r1,r2);
+    if(res==1){
+        cout<<"Same Area"<<endl;
+    }
+    else{
+       cout<<"Different"<<endl; 
+    }
+     r1.setLength(15);
+    r1.setWidth(6.3);
+    int res2=Rectangle::sameArea(r1,r2);
+    if(res2==1){
+        cout<<"Same Area"<<endl;
+    }
+    else{
+       cout<<"Different"<<endl; 
+    }
+    
+    
+
+    return 0;
+}
